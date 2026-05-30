@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Products | Elegance Furniture</title>
+    <meta name="description" content="Explore our crafted collections of premium dining sets, finely detailed wooden pulpits, living room, and office pieces.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="tablet-responsive.css">
+    <link rel="stylesheet" href="mobile-responsive.css">
+    <link rel="stylesheet" href="nav-tablet.css">
+    <link rel="stylesheet" href="nav-mobile.css">
+    <script src="navbar-scroll.js" defer></script>
+    <style>
+        /* Specific Styles for Products Page */
+        .products-hero {
+            padding: 180px 10% 80px 10%;
+            background-color: #faf8f5;
+            text-align: center;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .products-hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-weight: 500;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            color: #111;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+        }
+
+        .products-hero-subtitle {
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        /* Filter Controls */
+        .filter-controls {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            padding: 40px 10% 20px 10%;
+        }
+
+        .filter-btn {
+            background: none;
+            border: 1px solid rgba(0, 0, 0, 0.15);
+            padding: 0.8rem 1.8rem;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: #333;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background-color: #000;
+            color: #fff;
+            border-color: #000;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Products Grid Layout */
+        .products-grid-section {
+            padding: 40px 10% 120px 10%;
+        }
+
+        .products-showcase-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 3.5rem 1.8rem;
+        }
+
+        @media (max-width: 1024px) {
+            .products-showcase-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 2.5rem 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .products-showcase-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem 1.2rem;
+            }
+            .products-grid-section {
+                padding: 20px 5% 80px 5%;
+            }
+            .filter-controls {
+                padding: 30px 5% 10px 5%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .products-showcase-grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+        }
+
+        .showcase-card {
+            background-color: transparent;
+            border-radius: 0;
+            overflow: visible;
+            box-shadow: none;
+            border: none;
+            transition: opacity 0.5s cubic-bezier(0.25, 1, 0.5, 1), transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .showcase-card.hidden {
+            display: none;
+            opacity: 0;
+            transform: scale(0.95);
+        }
+
+        .showcase-img-wrapper {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            overflow: hidden;
+            background-color: #faf8f5;
+        }
+
+        .showcase-img {
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .showcase-card:hover .showcase-img {
+            transform: scale(1.05);
+        }
+
+        .showcase-info {
+            padding: 1rem 0 0 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+        }
+
+        .showcase-title {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 800;
+            color: #111;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin: 0;
+            line-height: 1.3;
+        }
+
+        .showcase-price {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.72rem;
+            color: #666;
+            font-weight: 500;
+            letter-spacing: 0.01em;
+            line-height: 1.2;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="navbar" style="background-color: #ffffff; position: fixed;">
+        <div class="logo">ELEGANCE.</div>
+        <nav class="nav-links" id="nav-links">
+            <button class="nav-close" id="nav-close" aria-label="Close menu">✕</button>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="products.html" class="active">Product</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+        <div class="nav-actions">
+            <button class="hamburger" aria-label="Menu" id="hamburger-btn">
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <section class="about-section scroll-reveal" style="padding-top: 180px; padding-bottom: 60px;">
+        <h2 class="about-title">OUR COLLECTIONS</h2>
+        <div class="about-content">
+            <p>At Elegance, masterful craftsmanship and premium materials shape every detail. Guided by our dedication
+                to quality, we create timeless pieces that elevate your spaces with quiet elegance.</p>
+            <p>Design is a way of life where purpose, feeling, and exquisite woodworking come together to shape calm,
+                meaningful spaces that elevate everyday living.</p>
+        </div>
+    </section>
+
+    <!-- Category Filter Controls -->
+    <div class="filter-controls scroll-reveal">
+        <button class="filter-btn active" data-filter="all">All Pieces</button>
+        <button class="filter-btn" data-filter="dining">Dining</button>
+        <button class="filter-btn" data-filter="pulpits">Pulpits</button>
+        <button class="filter-btn" data-filter="living">Living Room</button>
+        <button class="filter-btn" data-filter="office">Office</button>
+    </div>
+
+    <!-- Products Showcase Grid -->
+    <section class="products-grid-section">
+        <div class="products-showcase-grid">
+            <!-- Product Item 1: Dining -->
+            <div class="showcase-card scroll-reveal" data-category="dining" data-product-id="edwin-dining-chair">
+                <div class="showcase-img-wrapper">
+                    <div class="showcase-img" style="background-image: url('assets/dining1.jpg');"></div>
+                </div>
+                <div class="showcase-info">
+                    <h3 class="showcase-title">Edwin Dining Chair</h3>
+                    <div class="showcase-price">GH₵ 595 Original &nbsp;|&nbsp; GH₵ 534 Discounted</div>
+                </div>
+            </div>
+
+            <!-- Product Item 2: Dining -->
+            <div class="showcase-card scroll-reveal" data-category="dining" data-product-id="aria-dining-chair">
+                <div class="showcase-img-wrapper">
+                    <div class="showcase-img" style="background-image: url('assets/dining2.jpg');"></div>
+                </div>
+                <div class="showcase-info">
+                    <h3 class="showcase-title">Aria Dining Chair</h3>
+                    <div class="showcase-price">GH₵ 846 Original &nbsp;|&nbsp; GH₵ 811 Discounted</div>
+                </div>
+            </div>
+
+            <!-- Product Item 3: Living -->
+            <div class="showcase-card scroll-reveal" data-category="living" data-product-id="sydney-armchair">
+                <div class="showcase-img-wrapper">
+                    <div class="showcase-img" style="background-image: url('assets/hero_bg.jpg');"></div>
+                </div>
+                <div class="showcase-info">
+                    <h3 class="showcase-title">Sydney Armchair</h3>
+                    <div class="showcase-price">GH₵ 1,795 Original &nbsp;|&nbsp; GH₵ 921 Discounted</div>
+                </div>
+            </div>
+
+            <!-- Product Item 4: Living -->
+            <div class="showcase-card scroll-reveal" data-category="living" data-product-id="oxley-coffee-table">
+                <div class="showcase-img-wrapper">
+                    <div class="showcase-img" style="background-image: url('assets/dining2.jpg');"></div>
+                </div>
+                <div class="showcase-info">
+                    <h3 class="showcase-title">Oxley Coffee Table</h3>
+                    <div class="showcase-price">GH₵ 822 Original &nbsp;|&nbsp; GH₵ 793 Discounted</div>
+                </div>
+            </div>
+
+            <!-- Product Item 5: Pulpits -->
+            <div class="showcase-card scroll-reveal" data-category="pulpits" data-product-id="modern-pulpit">
+                <div class="showcase-img-wrapper">
+                    <div class="showcase-img" style="background-image: url('assets/pulpit1.jpg');"></div>
+                </div>
+                <div class="showcase-info">
+                    <h3 class="showcase-title">Modern Pulpit</h3>
+                    <div class="showcase-price">GH₵ 1,200 Original &nbsp;|&nbsp; GH₵ 980 Discounted</div>
+                </div>
+            </div>
+
+            <!-- Product Item 6: Pulpits -->
+            <div class="showcase-card scroll-reveal" data-category="pulpits" data-product-id="classic-pulpit">
+                <div class="showcase-img-wrapper">
+                    <div class="showcase-img" style="background-image: url('assets/pulpit2.jpg');"></div>
+                </div>
+                <div class="showcase-info">
+                    <h3 class="showcase-title">Classic Pulpit</h3>
+                    <div class="showcase-price">GH₵ 1,500 Original &nbsp;|&nbsp; GH₵ 1,250 Discounted</div>
+                </div>
+            </div>
+
+            <!-- Product Item 7: Office -->
+            <div class="showcase-card scroll-reveal" data-category="office" data-product-id="sydney-table-lamp">
+                <div class="showcase-img-wrapper">
+                    <div class="showcase-img" style="background-image: url('assets/hero_bg.jpg');"></div>
+                </div>
+                <div class="showcase-info">
+                    <h3 class="showcase-title">Sydney Table Lamp</h3>
+                    <div class="showcase-price">GH₵ 233 Original &nbsp;|&nbsp; GH₵ 210 Discounted</div>
+                </div>
+            </div>
+
+            <!-- Product Item 8: Office -->
+            <div class="showcase-card scroll-reveal" data-category="office" data-product-id="oxley-executive-desk">
+                <div class="showcase-img-wrapper">
+                    <div class="showcase-img" style="background-image: url('assets/dining2.jpg');"></div>
+                </div>
+                <div class="showcase-info">
+                    <h3 class="showcase-title">Oxley Executive Desk</h3>
+                    <div class="showcase-price">GH₵ 842 Original &nbsp;|&nbsp; GH₵ 693 Discounted</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Modal -->
+    <div id="product-modal" class="product-modal">
+        <div class="product-modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h3>Product details</h3>
+                <button class="close-modal" id="close-modal-btn" aria-label="Close modal">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Modal Content Body -->
+            <div class="modal-body-container">
+                <div class="modal-grid">
+                    <!-- Column 1: Gallery with Image & Thumbnails -->
+                    <div class="modal-gallery">
+                        <div class="modal-main-image">
+                            <img src="" alt="Product Image" id="modal-product-image">
+                        </div>
+                        <div class="modal-thumbnails-wrapper">
+                            <button class="thumb-nav prev-thumb" id="prev-thumb-btn">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="15 18 9 12 15 6"></polyline>
+                                </svg>
+                            </button>
+                            <div class="modal-thumbnails" id="modal-product-thumbnails">
+                                <!-- Thumbnails dynamically added -->
+                            </div>
+                            <button class="thumb-nav next-thumb" id="next-thumb-btn">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="9 18 15 12 9 6"></polyline>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Column 2: Product Info & Accordions -->
+                    <div class="modal-info-column">
+                        <h2 id="modal-product-title">Product Title</h2>
+                        <span class="product-sku-badge" id="modal-product-sku">SKU-2345</span>
+                        <div class="price-container">
+                            <span class="product-price" id="modal-product-price">GH₵ 0.00</span>
+                            <span class="price-subtext">incl. VAT & standard local delivery</span>
+                        </div>
+
+                        <!-- Accordions Group -->
+                        <div class="modal-accordions-group">
+                            <!-- Accordion 1: Description -->
+                            <div class="modal-accordion active" id="accordion-desc">
+                                <button class="accordion-header" aria-expanded="true">
+                                    <span>Product description</span>
+                                    <svg class="accordion-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <polyline points="18 15 12 9 6 15"></polyline>
+                                    </svg>
+                                </button>
+                                <div class="accordion-content" style="max-height: 500px;">
+                                    <div class="accordion-body">
+                                        <p id="modal-product-description">Product description goes here.</p>
+                                        <ul class="product-bullet-list" id="modal-product-bullets">
+                                            <!-- Dynamically generated list -->
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Accordion 2: Materials & Care -->
+                            <div class="modal-accordion" id="accordion-materials">
+                                <button class="accordion-header" aria-expanded="false">
+                                    <span>Materials & Care</span>
+                                    <svg class="accordion-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <polyline points="6 9 12 15 18 9"></polyline>
+                                    </svg>
+                                </button>
+                                <div class="accordion-content">
+                                    <div class="accordion-body">
+                                        <p id="modal-product-materials">Premium kiln-dried hardwood frame, luxury linen-blend upholstery or aniline leather, high-density comfort foam padding. Vacuum regularly with soft brush attachment. Blot spills immediately with clean damp cloth. Avoid harsh chemicals and direct sunlight exposure.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Accordion 3: Dimensions -->
+                            <div class="modal-accordion" id="accordion-dimensions">
+                                <button class="accordion-header" aria-expanded="false">
+                                    <span>Dimensions & Customization</span>
+                                    <svg class="accordion-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <polyline points="6 9 12 15 18 9"></polyline>
+                                    </svg>
+                                </button>
+                                <div class="accordion-content">
+                                    <div class="accordion-body">
+                                        <p id="modal-product-dimensions">Standard: W: 78cm x D: 82cm x H: 88cm. Custom configurations and bespoke dimensions available upon inquiry with our design team.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Modal Footer Action Bar -->
+            <div class="modal-footer">
+                <div class="footer-actions-wrapper">
+                    <!-- Left Button: Call Us Now (Styled like Bulk purchase) -->
+                    <a href="tel:+23324412345" class="btn-footer outline-btn">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                        </svg>
+                        <span>Call Us Now</span>
+                    </a>
+
+                    <!-- Right Button: Message Us (Styled like Add to cart) -->
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="btn-footer solid-btn" id="modal-whatsapp-link">
+                        <svg width="18" height="18" viewBox="0 0 16 16" fill="currentColor">
+                            <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
+                        </svg>
+                        <span>Message Us</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section scroll-reveal">
+        <h2 class="about-title">TESTIMONIALS</h2>
+        <div class="about-content" style="margin-bottom: 5rem;">
+            <p><strong>LOVED BY OUR CLIENTS</strong><br><br>At Elegance, masterful craftsmanship and premium materials
+                shape every detail. Guided by our dedication to quality, we create timeless pieces that elevate your
+                spaces with quiet elegance.</p>
+            <p><br>Design is a way of life where purpose, feeling, and exquisite woodworking come together to shape
+                calm, meaningful spaces that elevate everyday living.</p>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial-item scroll-reveal">
+                <div class="testimonial-image" style="background-image: url('assets/customer1.jpg');"></div>
+                <blockquote class="testimonial-quote">"The craftsmanship is absolutely breathtaking. Our dining room has
+                    become a calm, meaningful space where our family gathers every single day."</blockquote>
+                <cite class="testimonial-author">Ama Appiah, Kumasi</cite>
+            </div>
+            <div class="testimonial-item scroll-reveal">
+                <div class="testimonial-image" style="background-image: url('assets/customer2.jpg');"></div>
+                <blockquote class="testimonial-quote">"We ordered a custom pulpit for our sanctuary. The attention to
+                    detail and reverence in the woodworking exceeded all our expectations."</blockquote>
+                <cite class="testimonial-author">Akua Offei, Kasoa</cite>
+            </div>
+            <div class="testimonial-item scroll-reveal">
+                <div class="testimonial-image" style="background-image: url('assets/customer3.jpg');"></div>
+                <blockquote class="testimonial-quote">"Simple, warm, and beautifully made. Every time we touch the wood,
+                    we can feel the master craftsmanship and the sustainable history behind it."</blockquote>
+                <cite class="testimonial-author">Mallam Atta, Accra</cite>
+            </div>
+            <div class="testimonial-item scroll-reveal">
+                <div class="testimonial-image" style="background-image: url('assets/customer4.jpg');"></div>
+                <blockquote class="testimonial-quote">"A perfect blend of design and function. The side drawers are not
+                    only gorgeous but incredibly durable. Truly timeless furniture."</blockquote>
+                <cite class="testimonial-author">Akwasi Jonah, Madina</cite>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section scroll-reveal">
+        <div class="faq-container">
+            <h2 class="faq-main-title">Frequently Asked Questions</h2>
+            <p class="faq-subtitle"><strong>EVERYTHING YOU NEED TO KNOW</strong><br><br>Everything you need to know about our craftsmanship, ordering process, and delivery.</p>
+            
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Do you offer custom designs and sizes?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes, we specialize in custom-built furniture tailored to your exact specifications. Whether you need a specific dimension for a dining table or a custom pulpit design for your sanctuary, our master craftsmen will work with you to bring your vision to life.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Where do you source your wood from?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We care deeply about our environmental footprint. All our wood is sourced from responsibly managed, sustainable forests under accredited international certification, ensuring both premium quality and environmental conservation.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>What is your delivery timeline?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Typically, custom pieces take 2 to 4 weeks depending on the complexity of the design and our current workshop schedule. Once completed, standard delivery takes 3-4 working days.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Do you deliver across the country?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes, we offer reliable delivery and professional setup services across the region. Our team ensures that your furniture is transported safely and assembled perfectly in your designated space.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>What are your payment terms?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We offer flexible payment options. Typically, we require a deposit to initiate custom orders, with the balance payable upon delivery or according to agreed terms. We also support secure mobile money and bank transfers.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section scroll-reveal reveal-scale">
+        <div class="cta-content">
+            <h1 class="cta-title">Shop now for premium quality</h1>
+            <p class="cta-text">Upgrade your space with stylish, comfortable furniture. Find the perfect pieces now.</p>
+            <a href="products.html" class="cta-btn">Get Started</a>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <div class="footer-logo">ELEGANCE.</div>
+                <p class="footer-desc">Crafting timeless, masterfully built furniture and sanctuaries designed to bring quiet beauty and calm meaning to your space.</p>
+                <div class="footer-contact-info">
+                    <div class="contact-item">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                        <span>Accra, Tema, GPS AK-123-4567</span>
+                    </div>
+                    <div class="contact-item">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                        </svg>
+                        <span>+233 244 12345</span>
+                    </div>
+                    <div class="contact-item">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                        </svg>
+                        <span>+233 244 09876</span>
+                    </div>
+                    <div class="contact-item">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 .7 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                        </svg>
+                        <span>+233 244 56789</span>
+                    </div>
+                    <div class="contact-item">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                        <span>hello@elegancefurniture.com</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-links-grid">
+                <div class="footer-links-col">
+                    <h3 class="footer-col-title">Product</h3>
+                    <ul>
+                        <li><a href="products.html?filter=dining">Dining</a></li>
+                        <li><a href="products.html?filter=pulpits">Pulpits</a></li>
+                        <li><a href="products.html?filter=living">Living Room</a></li>
+                        <li><a href="products.html?filter=office">Office</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links-col">
+                    <h3 class="footer-col-title">Socials</h3>
+                    <ul>
+                        <li><a href="https://facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+                        <li><a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+                        <li><a href="https://whatsapp.com" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+                        <li><a href="https://x.com" target="_blank" rel="noopener noreferrer">X</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links-col">
+                    <h3 class="footer-col-title">Company</h3>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-bottom-container">
+                <span class="footer-copyright">© 2026 Elegance. All rights reserved.</span>
+                <div class="footer-credit">
+                    Created by <a href="https://wa.me/233535516633" class="credit-link" target="_blank"
+                        rel="noopener noreferrer">darlain</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/233535516633" class="whatsapp-float" target="_blank" rel="noopener noreferrer"
+        aria-label="Message Us on WhatsApp">
+        <div class="whatsapp-icon-wrapper">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.953 3.71 1.458 5.704 1.459h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"
+                    fill="currentColor" />
+            </svg>
+        </div>
+        <span class="whatsapp-text">Message Us</span>
+    </a>
+
+    <script>
+        // Force page scroll back to top on refresh/load
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+        }
+        window.scrollTo(0, 0);
+        window.addEventListener('load', () => {
+            window.scrollTo(0, 0);
+        });
+
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const navLinks = document.getElementById('nav-links');
+        const navCloseBtn = document.getElementById('nav-close');
+
+        hamburgerBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('show');
+            hamburgerBtn.classList.toggle('open');
+        });
+
+        if (navCloseBtn) {
+            navCloseBtn.addEventListener('click', () => {
+                navLinks.classList.remove('show');
+                hamburgerBtn.classList.remove('open');
+            });
+        }
+
+        // Close menu when a nav link is clicked (mobile UX)
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('show');
+                hamburgerBtn.classList.remove('open');
+            });
+        });
+
+        // FAQ Accordion Toggle
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const item = button.parentElement;
+                item.classList.toggle('active');
+                document.querySelectorAll('.faq-item').forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+            });
+        });
+
+        // Interactive Filtering Logic
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const productCards = document.querySelectorAll('.showcase-card');
+
+        function filterProducts(category) {
+            // Update active button state
+            filterButtons.forEach(btn => {
+                if (btn.getAttribute('data-filter') === category) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+
+            // Toggle grid items with soft opacity transitions
+            productCards.forEach(card => {
+                const cardCategory = card.getAttribute('data-category');
+                if (category === 'all' || cardCategory === category) {
+                    card.classList.remove('hidden');
+                    // Force a layout reflow to trigger reveal scroll observers
+                    setTimeout(() => {
+                        card.classList.add('active');
+                    }, 50);
+                } else {
+                    card.classList.add('hidden');
+                    card.classList.remove('active');
+                }
+            });
+        }
+
+        // Attach click listeners to filter controls
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const category = button.getAttribute('data-filter');
+                filterProducts(category);
+            });
+        });
+
+        // Read query parameters to support navbar sub-links auto-filtering
+        function checkQueryFilter() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const filterParam = urlParams.get('filter');
+            if (filterParam) {
+                filterProducts(filterParam);
+            }
+        }
+
+        // Run query check on load
+        window.addEventListener('DOMContentLoaded', checkQueryFilter);
+
+        // Intersection Observer for Scroll Animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                } else {
+                    entry.target.classList.remove('active');
+                }
+            });
+        }, observerOptions);
+
+        productCards.forEach(card => observer.observe(card));
+        document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
+
+        // Premium Dynamic Product Modal Dataset & Logic
+        const productsData = {
+            'edwin-dining-chair': {
+                title: 'Edwin Dining Chair',
+                price: 'GH₵ 534',
+                description: 'Exquisite craftsmanship meets ultimate comfort. Features a solid timber frame with a finely upholstered cushioned seat, perfect for premium dining settings.',
+                bullets: [
+                    'Solid kiln-dried mahogany timber frame',
+                    'High-density polyurethane cushioning',
+                    'Finely upholstered durable ivory linen fabric',
+                    'Reinforced joints for commercial grade durability'
+                ],
+                colors: [
+                    { name: 'Ivory', value: '#F3F3F3' },
+                    { name: 'Light Grey', value: '#C0C0C0' },
+                    { name: 'Dark Olive', value: '#3E4B35' },
+                    { name: 'Warm Brown', value: '#9E6B30' }
+                ],
+                images: ['assets/dining1.jpg', 'assets/dining2.jpg', 'assets/hero_bg.jpg'],
+                sku: 'ELG-EDWCH-09',
+                availability: '34 units available'
+            },
+            'aria-dining-chair': {
+                title: 'Aria Dining Chair',
+                price: 'GH₵ 811',
+                description: 'Sleek, minimalistic design crafted from premium hardwoods. Gently curved backrest provides superb lumbar support for long, elegant dinner conversations.',
+                bullets: [
+                    'Premium hardwood curved backrest',
+                    'Ergonomically designed lumbar support',
+                    'Warm amber walnut finish protective seal',
+                    'Minimalist sleek profile perfect for modern dining'
+                ],
+                colors: [
+                    { name: 'Off-White', value: '#EAEAEA' },
+                    { name: 'Mid Grey', value: '#999999' },
+                    { name: 'Olive Green', value: '#4E5E43' },
+                    { name: 'Amber Walnut', value: '#B2733D' }
+                ],
+                images: ['assets/dining2.jpg', 'assets/dining1.jpg', 'assets/hero_bg.jpg'],
+                sku: 'ELG-ARIACH-12',
+                availability: '18 units available'
+            },
+            'sydney-armchair': {
+                title: 'Sydney Armchair',
+                price: 'GH₵ 921',
+                description: 'A bold, modern sanctuary of relaxation. Upholstered in our finest tactile linen-blend with hand-turned solid oak legs and premium sink-in cushioning.',
+                bullets: [
+                    'Tactile linen-blend luxury upholstery',
+                    'Hand-turned solid oak legs in natural finish',
+                    'Deep sink-in pocket-spring cushioning',
+                    'Broad comfortable armrests and relaxed angle'
+                ],
+                colors: [
+                    { name: 'Ivory Cream', value: '#F9F6EE' },
+                    { name: 'Charcoal', value: '#333333' },
+                    { name: 'Forrest Green', value: '#2C3E2B' },
+                    { name: 'Caramel Brown', value: '#AF6E4D' }
+                ],
+                images: ['assets/hero_bg.jpg', 'assets/dining1.jpg', 'assets/dining2.jpg'],
+                sku: 'ELG-SYDARM-04',
+                availability: '12 units available'
+            },
+            'oxley-coffee-table': {
+                title: 'Oxley Coffee Table',
+                price: 'GH₵ 793',
+                description: 'Perfect centerpiece for your living space. Handcrafted from selected premium timber planks featuring organic grain patterns and finished with a durable, soft-matte protective seal.',
+                bullets: [
+                    'Handselected premium timber tabletop',
+                    'Durable soft-matte protective polyurethane seal',
+                    'Organic wood grain patterns uniquely displayed',
+                    'Sturdy box-frame legs for architectural presence'
+                ],
+                colors: [
+                    { name: 'Natural Oak', value: '#ECE4DB' },
+                    { name: 'Smoked Oak', value: '#827870' },
+                    { name: 'Walnut', value: '#654321' },
+                    { name: 'Charcoal Oak', value: '#2C2C2C' }
+                ],
+                images: ['assets/dining2.jpg', 'assets/hero_bg.jpg', 'assets/dining1.jpg'],
+                sku: 'ELG-OXLCT-21',
+                availability: '8 units available'
+            },
+            'modern-pulpit': {
+                title: 'Modern Pulpit',
+                price: 'GH₵ 980',
+                description: 'A beautiful fusion of modern architectural lines and sacred wood craftsmanship. Designed to bring elegance and presence to contemporary platforms.',
+                bullets: [
+                    'Modern minimalist architectural profile',
+                    'Kiln-dried solid hardwood base and reading plate',
+                    'Integrated document lip and cable management entry',
+                    'Eco-friendly low-VOC satin finish coating'
+                ],
+                colors: [
+                    { name: 'Frosted White', value: '#FFFFFF' },
+                    { name: 'Metallic Silver', value: '#CCCCCC' },
+                    { name: 'Dark Oak', value: '#3D2516' },
+                    { name: 'Mahogany', value: '#601C14' }
+                ],
+                images: ['assets/pulpit1.jpg', 'assets/pulpit2.jpg', 'assets/dining1.jpg'],
+                sku: 'ELG-MODPLP-01',
+                availability: '5 units available'
+            },
+            'classic-pulpit': {
+                title: 'Classic Pulpit',
+                price: 'GH₵ 1,250',
+                description: 'Ornate detailing meets traditional woodworking artistry. Made of solid kiln-dried wood with hand-polished satin finishes that stand the test of time.',
+                bullets: [
+                    'Ornate hand-carved classical details',
+                    'Polished natural teak solid wood frame',
+                    'Spacious angled reading deck with bible rest',
+                    'Sturdy structural base with non-slip floor protectors'
+                ],
+                colors: [
+                    { name: 'Warm Teak', value: '#D4A373' },
+                    { name: 'Deep Walnut', value: '#582F0E' },
+                    { name: 'Antique Gold', value: '#B58A63' },
+                    { name: 'Regal Mahogany', value: '#3F1E15' }
+                ],
+                images: ['assets/pulpit2.jpg', 'assets/pulpit1.jpg', 'assets/dining2.jpg'],
+                sku: 'ELG-CLAPLP-02',
+                availability: '7 units available'
+            },
+            'sydney-table-lamp': {
+                title: 'Sydney Table Lamp',
+                price: 'GH₵ 210',
+                description: 'Sleek task lighting for refined workspaces. Features a brass-plated adjustable arm, an organic fabric-texture shade, and an integrated dimmer for perfect work ambiance.',
+                bullets: [
+                    'Solid brushed brass adjustable neck and arm',
+                    'Organic linen fabric shade for diffused ambient light',
+                    'Integrated rotary dimmer switch on base',
+                    'Includes energy-efficient warm LED bulb'
+                ],
+                colors: [
+                    { name: 'Matte White', value: '#FAFAFA' },
+                    { name: 'Matte Black', value: '#111111' },
+                    { name: 'Brushed Brass', value: '#D4AF37' },
+                    { name: 'Sage Green', value: '#8F9779' }
+                ],
+                images: ['assets/hero_bg.jpg', 'assets/dining1.jpg', 'assets/dining2.jpg'],
+                sku: 'ELG-SYDLMP-15',
+                availability: '15 units available'
+            },
+            'oxley-executive-desk': {
+                title: 'Oxley Executive Desk',
+                price: 'GH₵ 693',
+                description: 'Empower your workspace with elegance. Spacious writing desk with dynamic storage options, soft-closing drawer glides, and beautiful premium wood panel details.',
+                bullets: [
+                    'Large premium wood writing surface',
+                    'Two storage drawers with soft-closing steel glides',
+                    'Integrated leather-texture inlay writing pad',
+                    'Elegant solid wood modesty panel details'
+                ],
+                colors: [
+                    { name: 'Ash Grey', value: '#B4B8B9' },
+                    { name: 'Natural Cherry', value: '#C1825B' },
+                    { name: 'Charcoal Black', value: '#1C1E20' },
+                    { name: 'Royal Walnut', value: '#4E3629' }
+                ],
+                images: ['assets/dining2.jpg', 'assets/hero_bg.jpg', 'assets/dining1.jpg'],
+                sku: 'ELG-OXLEXD-07',
+                availability: '9 units available'
+            }
+        };
+
+        // Modal Elements
+        const modal = document.getElementById('product-modal');
+        const closeModalBtn = document.getElementById('close-modal-btn');
+        const modalImg = document.getElementById('modal-product-image');
+        const modalTitle = document.getElementById('modal-product-title');
+        const modalPrice = document.getElementById('modal-product-price');
+        const modalDesc = document.getElementById('modal-product-description');
+        const modalThumbnails = document.getElementById('modal-product-thumbnails');
+        const modalSku = document.getElementById('modal-product-sku');
+        const modalBullets = document.getElementById('modal-product-bullets');
+        const prevThumbBtn = document.getElementById('prev-thumb-btn');
+        const nextThumbBtn = document.getElementById('next-thumb-btn');
+
+        let activeProductData = null;
+        let currentImageIdx = 0;
+
+        function closeModal() {
+            modal.classList.remove('show');
+            document.body.style.overflow = '';
+            document.documentElement.style.overflow = '';
+        }
+
+        closeModalBtn.addEventListener('click', closeModal);
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+
+        function updateWhatsAppLink() {
+            if (!activeProductData) return;
+            const whatsappBtn = document.getElementById('modal-whatsapp-link');
+            const msg = `Hello Elegance Furniture, I am interested in the ${activeProductData.title}. Please let me know the details.`;
+            whatsappBtn.href = `https://wa.me/233535516633?text=${encodeURIComponent(msg)}`;
+        }
+
+        // Accordions
+        const accordions = document.querySelectorAll('.modal-accordion');
+        accordions.forEach(accordion => {
+            const header = accordion.querySelector('.accordion-header');
+            header.addEventListener('click', () => {
+                const isActive = accordion.classList.contains('active');
+                accordions.forEach(acc => {
+                    acc.classList.remove('active');
+                    acc.querySelector('.accordion-header').setAttribute('aria-expanded', 'false');
+                    acc.querySelector('.accordion-content').style.maxHeight = '0';
+                });
+                if (!isActive) {
+                    accordion.classList.add('active');
+                    header.setAttribute('aria-expanded', 'true');
+                    accordion.querySelector('.accordion-content').style.maxHeight = '500px';
+                }
+            });
+        });
+
+        // Size option selection
+
+        function updateGalleryImage(idx) {
+            if (!activeProductData) return;
+            currentImageIdx = idx;
+            modalImg.src = activeProductData.images[currentImageIdx];
+            modalThumbnails.querySelectorAll('.thumb-item').forEach((thumb, i) => {
+                thumb.classList.toggle('active', i === currentImageIdx);
+            });
+        }
+
+        prevThumbBtn.addEventListener('click', () => {
+            if (!activeProductData) return;
+            let newIdx = currentImageIdx - 1;
+            if (newIdx < 0) newIdx = activeProductData.images.length - 1;
+            updateGalleryImage(newIdx);
+        });
+
+        nextThumbBtn.addEventListener('click', () => {
+            if (!activeProductData) return;
+            let newIdx = currentImageIdx + 1;
+            if (newIdx >= activeProductData.images.length) newIdx = 0;
+            updateGalleryImage(newIdx);
+        });
+
+        function buildCheckSvg() {
+            return '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>';
+        }
+
+        // Open modal
+        productCards.forEach(card => {
+            card.addEventListener('click', () => {
+                const productId = card.getAttribute('data-product-id');
+                const pData = productsData[productId];
+                if (!pData) return;
+
+                activeProductData = pData;
+
+                modalTitle.textContent = pData.title;
+                modalPrice.textContent = pData.price;
+                modalDesc.textContent = pData.description;
+                modalSku.textContent = pData.sku || 'SKU-UNKNOWN';
+
+                // Bullets
+                modalBullets.innerHTML = '';
+                (pData.bullets || []).forEach(bullet => {
+                    const li = document.createElement('li');
+                    li.innerHTML = '<span class="bullet-check">&#10003;</span> <span>' + bullet + '</span>';
+                    modalBullets.appendChild(li);
+                });
+
+
+                // Gallery
+                currentImageIdx = 0;
+                modalImg.src = pData.images[0];
+                modalImg.alt = pData.title;
+                modalThumbnails.innerHTML = '';
+                pData.images.forEach((imgSrc, idx) => {
+                    const thumbDiv = document.createElement('div');
+                    thumbDiv.className = 'thumb-item' + (idx === 0 ? ' active' : '');
+                    thumbDiv.style.backgroundImage = "url('" + imgSrc + "')";
+                    thumbDiv.addEventListener('click', (e) => { e.stopPropagation(); updateGalleryImage(idx); });
+                    modalThumbnails.appendChild(thumbDiv);
+                });
+
+                updateWhatsAppLink();
+
+                // Reset accordions
+                accordions.forEach((acc, idx) => {
+                    const content = acc.querySelector('.accordion-content');
+                    const header = acc.querySelector('.accordion-header');
+                    if (idx === 0) {
+                        acc.classList.add('active');
+                        header.setAttribute('aria-expanded', 'true');
+                        content.style.maxHeight = '500px';
+                    } else {
+                        acc.classList.remove('active');
+                        header.setAttribute('aria-expanded', 'false');
+                        content.style.maxHeight = '0';
+                    }
+                });
+
+                modal.classList.add('show');
+                document.body.style.overflow = 'hidden';
+                document.documentElement.style.overflow = 'hidden';
+            });
+        });
+    </script>
+</body>
+
+</html>

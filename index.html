@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Elegance Furniture & Pulpits</title>
+    <meta name="description" content="Premium dining furniture and finely crafted wooden church pulpits.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="tablet-responsive.css">
+    <link rel="stylesheet" href="mobile-responsive.css">
+    <link rel="stylesheet" href="nav-tablet.css">
+    <link rel="stylesheet" href="nav-mobile.css">
+    <link rel="stylesheet" href="hero-v2.css">
+    <script src="navbar-scroll.js" defer></script>
+</head>
+
+<body class="homepage">
+    <header class="navbar">
+        <div class="logo">ELEGANCE.</div>
+        <nav class="nav-links" id="nav-links">
+            <button class="nav-close" id="nav-close" aria-label="Close menu">✕</button>
+            <a href="index.html" class="active">Home</a>
+            <a href="about.html">About</a>
+            <a href="products.html">Product</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+        <div class="nav-actions">
+            <button class="hamburger" aria-label="Menu" id="hamburger-btn">
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <section class="hero-v2" id="home" aria-label="Hero">
+        <div class="hero-v2__bg" style="background-image: url('assets/hero.jpg');" role="img" aria-hidden="true"></div>
+        <div class="hero-v2__overlay"></div>
+        <div class="hero-v2__content">
+            <h1 class="hero-v2__title">Crafted<br>for<br>your<br>spaces.</h1>
+            <a href="products.html" class="btn-solid hero-v2__cta">View our latest products</a>
+        </div>
+    </section>
+
+    <section id="about" class="about-section scroll-reveal">
+        <h2 class="about-title">MEET ELEGANCE</h2>
+        <div class="about-content">
+            <p>At Elegance, masterful craftsmanship and premium materials shape every detail. Guided by our dedication
+                to quality, we create timeless pieces that elevate your spaces with quiet elegance.</p>
+            <p>Design is a way of life where purpose, feeling, and exquisite woodworking come together to shape calm,
+                meaningful spaces that elevate everyday living.</p>
+        </div>
+    </section>
+
+    <section id="products" class="products-section scroll-reveal">
+        <h2 class="about-title">Explore Our Crafted Pieces</h2>
+        <div class="about-content" style="margin-bottom: 4rem;">
+            <p>We create pieces that blend design and function.</p>
+            <p>Simple, warm, and beautifully made furniture.</p>
+            <div class="about-action">
+                <a href="products.html" class="btn-solid">BROWSE ALL PRODUCTS <svg width="14" height="14"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg></a>
+            </div>
+        </div>
+
+        <div class="products-grid">
+            <div class="product-card scroll-reveal" style="background-image: url('assets/dining1.jpg');">
+                <div class="card-cutout">
+                    <span class="product-number">Dining Set</span>
+                </div>
+            </div>
+            <div class="product-card scroll-reveal" style="background-image: url('assets/dining2.jpg');">
+                <div class="card-cutout">
+                    <span class="product-number">Living Room</span>
+                </div>
+            </div>
+            <div class="product-card scroll-reveal" style="background-image: url('assets/pulpit1.jpg');">
+                <div class="card-cutout">
+                    <span class="product-number">Modern Pulpit</span>
+                </div>
+            </div>
+            <div class="product-card scroll-reveal" style="background-image: url('assets/office.jpg');">
+                <div class="card-cutout">
+                    <span class="product-number">Office</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="sustainable-section scroll-reveal">
+        <div class="sustainable-content">
+            <h2 class="sustainable-title">SOURCED FROM<br>SUSTAINABLE<br>FORESTS</h2>
+            <p class="sustainable-text">We care about the origin of the wood. The wood we use comes from responsibly
+                managed forests, including forests that we manage under accredited international certification.</p>
+        </div>
+        <div class="sustainable-gallery">
+            <div class="gallery-item gallery-left scroll-reveal reveal-left"
+                style="background-image: url('assets/dining2.jpg');">
+            </div>
+            <div class="gallery-item gallery-right-top scroll-reveal reveal-right"
+                style="background-image: url('assets/hero_bg.jpg');">
+            </div>
+            <div class="gallery-item gallery-right-bottom scroll-reveal reveal-right"
+                style="background-image: url('assets/pulpit1.jpg');">
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials-section scroll-reveal">
+        <h2 class="about-title">TESTIMONIALS</h2>
+        <div class="about-content" style="margin-bottom: 5rem;">
+            <p><strong>LOVED BY OUR CLIENTS</strong><br><br>At Elegance, masterful craftsmanship and premium materials
+                shape every detail. Guided by our dedication to quality, we create timeless pieces that elevate your
+                spaces with quiet elegance.</p>
+            <p><br>Design is a way of life where purpose, feeling, and exquisite woodworking come together to shape
+                calm, meaningful spaces that elevate everyday living.</p>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial-item scroll-reveal">
+                <div class="testimonial-image" style="background-image: url('assets/customer1.jpg');"></div>
+                <blockquote class="testimonial-quote">"The craftsmanship is absolutely breathtaking. Our dining room has
+                    become a calm, meaningful space where our family gathers every single day."</blockquote>
+                <cite class="testimonial-author">Ama Appiah, Kumasi</cite>
+            </div>
+            <div class="testimonial-item scroll-reveal">
+                <div class="testimonial-image" style="background-image: url('assets/customer2.jpg');"></div>
+                <blockquote class="testimonial-quote">"We ordered a custom pulpit for our sanctuary. The attention to
+                    detail and reverence in the woodworking exceeded all our expectations."</blockquote>
+                <cite class="testimonial-author">Akua Offei, Kasoa</cite>
+            </div>
+            <div class="testimonial-item scroll-reveal">
+                <div class="testimonial-image" style="background-image: url('assets/customer3.jpg');"></div>
+                <blockquote class="testimonial-quote">"Simple, warm, and beautifully made. Every time we touch the wood,
+                    we can feel the master craftsmanship and the sustainable history behind it."</blockquote>
+                <cite class="testimonial-author">Mallam Atta, Accra</cite>
+            </div>
+            <div class="testimonial-item scroll-reveal">
+                <div class="testimonial-image" style="background-image: url('assets/customer4.jpg');"></div>
+                <blockquote class="testimonial-quote">"A perfect blend of design and function. The side drawers are not
+                    only gorgeous but incredibly durable. Truly timeless furniture."</blockquote>
+                <cite class="testimonial-author">Akwasi Jonah, Madina</cite>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section scroll-reveal">
+        <div class="faq-container">
+            <h2 class="faq-main-title">Frequently Asked Questions</h2>
+            <p class="faq-subtitle"><strong>EVERYTHING YOU NEED TO KNOW</strong><br><br>Everything you need to know about our craftsmanship, ordering process, and delivery.</p>
+            
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Do you offer custom designs and sizes?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes, we specialize in custom-built furniture tailored to your exact specifications. Whether you need a specific dimension for a dining table or a custom pulpit design for your sanctuary, our master craftsmen will work with you to bring your vision to life.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Where do you source your wood from?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We care deeply about our environmental footprint. All our wood is sourced from responsibly managed, sustainable forests under accredited international certification, ensuring both premium quality and environmental conservation.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>What is your delivery timeline?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Typically, custom pieces take 2 to 4 weeks depending on the complexity of the design and our current workshop schedule. Once completed, standard delivery takes 3-4 working days.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Do you deliver across the country?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes, we offer reliable delivery and professional setup services across the region. Our team ensures that your furniture is transported safely and assembled perfectly in your designated space.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>What are your payment terms?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We offer flexible payment options. Typically, we require a deposit to initiate custom orders, with the balance payable upon delivery or according to agreed terms. We also support secure mobile money and bank transfers.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section scroll-reveal reveal-scale">
+        <div class="cta-content">
+            <h1 class="cta-title">Shop now for premium quality</h1>
+            <p class="cta-text">Upgrade your space with stylish, comfortable furniture. Find the perfect pieces now.</p>
+            <a href="products.html" class="cta-btn">Get Started</a>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <div class="footer-logo">ELEGANCE.</div>
+                <p class="footer-desc">Crafting timeless, masterfully built furniture and sanctuaries designed to bring
+                    quiet beauty and calm meaning to your space.</p>
+                <div class="footer-contact-info">
+                    <div class="contact-item">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                        <span>Accra, Tema, GPS AK-123-4567</span>
+                    </div>
+                    <div class="contact-item">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                            </path>
+                        </svg>
+                        <span>+233 244 12345</span>
+                    </div>
+                    <div class="contact-item">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                            </path>
+                        </svg>
+                        <span>+233 244 09876</span>
+                    </div>
+                    <div class="contact-item">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                            </path>
+                        </svg>
+                        <span>+233 244 56789</span>
+                    </div>
+                    <div class="contact-item">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                            </path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                        <span>hello@elegancefurniture.com</span>
+                    </div>
+                    <!-- Footer mobile nav (visible only on small screens) -->
+                    <nav class="footer-mobile-nav" aria-label="Footer navigation (mobile)">
+                        <a href="index.html">Home</a>
+                        <a href="about.html">About</a>
+                        <a href="products.html">Product</a>
+                        <a href="contact.html">Contact</a>
+                    </nav>
+                </div>
+            </div>
+
+            <div class="footer-links-grid">
+                <div class="footer-links-col">
+                    <h3 class="footer-col-title">Product</h3>
+                    <ul>
+                        <li><a href="products.html?filter=dining">Dining</a></li>
+                        <li><a href="products.html?filter=pulpits">Pulpits</a></li>
+                        <li><a href="products.html?filter=living">Living Room</a></li>
+                        <li><a href="products.html?filter=office">Office</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links-col">
+                    <h3 class="footer-col-title">Socials</h3>
+                    <ul>
+                        <li><a href="https://facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+                        <li><a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+                        <li><a href="https://whatsapp.com" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+                        <li><a href="https://x.com" target="_blank" rel="noopener noreferrer">X</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links-col">
+                    <h3 class="footer-col-title">Company</h3>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-bottom-container">
+                <span class="footer-copyright">© 2026 Elegance. All rights reserved.</span>
+                <div class="footer-credit">
+                    Created by <a href="https://wa.me/233535516633" class="credit-link" target="_blank"
+                        rel="noopener noreferrer">darlain</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/233535516633" class="whatsapp-float" target="_blank" rel="noopener noreferrer"
+        aria-label="Message Us on WhatsApp">
+        <div class="whatsapp-icon-wrapper">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.953 3.71 1.458 5.704 1.459h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"
+                    fill="currentColor" />
+            </svg>
+        </div>
+        <span class="whatsapp-text">Message Us</span>
+    </a>
+
+    <script>
+        // Force page scroll back to top on refresh/load
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+        }
+        window.scrollTo(0, 0);
+        window.addEventListener('load', () => {
+            window.scrollTo(0, 0);
+        });
+
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const navLinks = document.getElementById('nav-links');
+        const navCloseBtn = document.getElementById('nav-close');
+
+        hamburgerBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('show');
+            hamburgerBtn.classList.toggle('open');
+        });
+
+        if (navCloseBtn) {
+            navCloseBtn.addEventListener('click', () => {
+                navLinks.classList.remove('show');
+                hamburgerBtn.classList.remove('open');
+            });
+        }
+
+        // Close menu when a nav link is clicked (mobile UX)
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('show');
+                hamburgerBtn.classList.remove('open');
+            });
+        });
+
+        // FAQ Accordion Toggle
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const item = button.parentElement;
+                item.classList.toggle('active');
+                document.querySelectorAll('.faq-item').forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+            });
+        });
+
+        // Intersection Observer for Scroll Animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                } else {
+                    entry.target.classList.remove('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-reveal').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,8 @@
+{
+  "name": "Elegance Furniture",
+  "description": "Premium dining collections, modern custom pulpits, and exquisite wooden furniture.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

@@ -1,0 +1,143 @@
+/* hero-v2: clean, responsive full-bleed hero with stacked text anchored bottom-left */
+.hero-v2 {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 720px; /* increased to make hero taller on large screens */
+  display: flex;
+  align-items: flex-end;       /* anchor to bottom */
+  justify-content: flex-start; /* anchor to left */
+  overflow: hidden;
+  background-color: #111;
+  box-sizing: border-box;
+}
+
+.hero-v2__bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  z-index: 0;
+  will-change: transform;
+}
+
+/* Gradient overlay to improve text contrast on left/bottom */
+.hero-v2__overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to right,  rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.18) 60%, rgba(0,0,0,0) 100%),
+    linear-gradient(to top,    rgba(0,0,0,0.55) 0%, rgba(0,0,0,0)    50%);
+  z-index: 1;
+}
+
+.hero-v2__content {
+  position: relative;
+  z-index: 2;
+  padding: 0 0 5vh 5vw;    /* bottom + left breathing room */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5rem;
+  box-sizing: border-box;
+  max-width: 55%;
+}
+
+.hero-v2__title {
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 900;
+  color: #fff;
+  line-height: 0.92;
+  margin: 0;
+  letter-spacing: -0.04em;
+  text-shadow: 0 2px 28px rgba(0,0,0,0.32);
+}
+
+.hero-v2__cta {
+  align-self: flex-start;
+  margin-top: 0.6rem;
+  padding: 0.8rem 1.8rem;
+  font-size: 0.8rem;
+}
+
+/* Desktop: tuck the content lower-left as in the design, higher up to ensure CTA is visible */
+@media (min-width: 1025px) {
+  .hero-v2__content {
+    position: absolute;
+    bottom: 18vh;
+    left: 6vw;
+    padding: 0;
+    max-width: min(540px, calc(100% - 8vw));
+    width: auto;
+  }
+  .hero-v2__title {
+    font-size: clamp(2.8rem, 5.5vw, 4.8rem);
+    line-height: 0.9;
+  }
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .hero-v2__content {
+    max-width: 70%;
+    padding: 10vh 0 5vh 4vw;
+  }
+  .hero-v2__title {
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    text-align: left;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .hero-v2 {
+    /* increase hero height on phones a bit and center content beautifully */
+    height: 100vh !important;
+    min-height: 850px !important;
+    align-items: center;
+  }
+  .hero-v2__content {
+    max-width: 92%;
+    /* shift content down to avoid overlapping with logo */
+    padding: 140px 4vw 4vh 4vw !important;
+    gap: 1.5rem;
+    align-items: flex-start !important;
+    text-align: left !important;
+    transform: none !important;
+  }
+  .hero-v2__title {
+    font-size: clamp(2.5rem, 10vw, 3rem);
+    line-height: 1.05;
+    margin-top: 0.5rem;
+    text-align: left !important;
+  }
+  .hero-v2__cta {
+    margin-top: 1.2rem;
+    padding: 0.75rem 1.5rem !important;
+    font-size: 0.85rem !important;
+    white-space: nowrap;
+  }
+}
+
+/* ----------- Tablet Hero (768px - 1199px) ----------- */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .hero-v2 {
+    height: 100vh !important;
+    min-height: 820px !important;
+    align-items: center !important;
+  }
+  .hero-v2__content {
+    position: relative !important;
+    bottom: auto !important;
+    left: auto !important;
+    max-width: 75% !important;
+    padding: 140px 4vw 4vh 4vw !important; /* safe padding-top below the fixed header & logo */
+    gap: 1.5rem !important;
+    transform: none !important;
+    align-items: flex-start !important;
+    text-align: left !important;
+    width: auto !important;
+  }
+}
+
