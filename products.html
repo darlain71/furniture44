@@ -365,14 +365,14 @@
                         <!-- Accordions Group -->
                         <div class="modal-accordions-group">
                             <!-- Accordion 1: Description -->
-                            <div class="modal-accordion active" id="accordion-desc">
-                                <button class="accordion-header" aria-expanded="true">
+                            <div class="modal-accordion" id="accordion-desc">
+                                <button class="accordion-header" aria-expanded="false">
                                     <span>Product description</span>
                                     <svg class="accordion-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <polyline points="18 15 12 9 6 15"></polyline>
+                                        <polyline points="6 9 12 15 18 9"></polyline>
                                     </svg>
                                 </button>
-                                <div class="accordion-content" style="max-height: 500px;">
+                                <div class="accordion-content">
                                     <div class="accordion-body">
                                         <p id="modal-product-description">Product description goes here.</p>
                                         <ul class="product-bullet-list" id="modal-product-bullets">
@@ -1047,19 +1047,13 @@
 
                 updateWhatsAppLink();
 
-                // Reset accordions
-                accordions.forEach((acc, idx) => {
+                // Reset accordions to all be closed initially
+                accordions.forEach((acc) => {
                     const content = acc.querySelector('.accordion-content');
                     const header = acc.querySelector('.accordion-header');
-                    if (idx === 0) {
-                        acc.classList.add('active');
-                        header.setAttribute('aria-expanded', 'true');
-                        content.style.maxHeight = '500px';
-                    } else {
-                        acc.classList.remove('active');
-                        header.setAttribute('aria-expanded', 'false');
-                        content.style.maxHeight = '0';
-                    }
+                    acc.classList.remove('active');
+                    header.setAttribute('aria-expanded', 'false');
+                    content.style.maxHeight = '0';
                 });
 
                 modal.classList.add('show');
