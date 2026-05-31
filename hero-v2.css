@@ -104,9 +104,9 @@
     align-items: center;
   }
 
-  /* Zoom out hero background image on mobile to prevent over-crop and quality loss */
+  /* Background image covers the full hero section on mobile */
   .hero-v2__bg {
-    background-size: 400% auto !important;
+    background-size: cover !important;
     background-position: center center !important;
   }
 
