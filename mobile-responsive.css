@@ -631,7 +631,7 @@
         font-size: 0.75rem !important;
     }
 
-    /* Flow Footer - Mobile: relative flow at the bottom of scroll page */
+    /* Flow Footer - Mobile: relative flow at the bottom of scroll page with extra height under buttons */
     .modal-footer {
         position: relative !important;
         bottom: auto !important;
@@ -639,7 +639,7 @@
         width: 100% !important;
         background-color: #ffffff !important;
         border-top: 1px solid #e2e8f0 !important;
-        padding: 1.25rem 0 0.5rem 0 !important;
+        padding: 1.25rem 0 5rem 0 !important;
         box-shadow: none !important;
         z-index: 100 !important;
         margin-top: 1.5rem !important;

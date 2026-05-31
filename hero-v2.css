@@ -99,7 +99,7 @@
 @media (max-width: 600px) {
   .hero-v2 {
     /* increase hero height on phones a bit and center content beautifully */
-    height: 90vh !important;
+    height: 100vh !important;
     min-height: 850px !important;
     align-items: center;
   }
