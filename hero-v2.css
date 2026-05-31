@@ -106,7 +106,7 @@
 
   /* Zoom out hero background image on mobile to prevent over-crop and quality loss */
   .hero-v2__bg {
-    background-size: 500% auto !important;
+    background-size: 400% auto !important;
     background-position: center center !important;
   }
 

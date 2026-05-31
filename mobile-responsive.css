@@ -657,6 +657,30 @@
         height: 44px !important;
         font-size: 0.82rem !important;
         border-radius: 6px !important;
+        padding: 0 0.5rem !important;
+        white-space: nowrap !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+
+    .btn-footer span {
+        white-space: nowrap !important;
+    }
+
+    /* Keep regular solid buttons and CTA buttons scalable and readable on mobile */
+    .btn-solid,
+    .cta-btn {
+        padding: 0.8rem 1.6rem !important;
+        font-size: 0.8rem !important;
+        letter-spacing: 0.08em !important;
+    }
+
+    /* Keep filter controls buttons compact on mobile so they don't break grid spacing */
+    .filter-btn {
+        padding: 0.6rem 1rem !important;
+        font-size: 0.72rem !important;
+        letter-spacing: 0.08em !important;
     }
 
     /* Hide scrollbars on Mobile modal */
@@ -670,5 +694,82 @@
         display: none !important;
         width: 0 !important;
         height: 0 !important;
+    }
+}
+
+/* ----------- Extra Small Devices (360px and down) ----------- */
+@media (max-width: 360px) {
+    .navbar {
+        padding: 0.5rem 0.75rem !important;
+    }
+    
+    .logo {
+        font-size: 1.15rem !important;
+    }
+    
+    .hamburger {
+        width: 28px !important;
+        height: 28px !important;
+        margin-right: 8px !important;
+    }
+    
+    .about-section, 
+    .products-section, 
+    .testimonials-section, 
+    .faq-section {
+        padding: 2rem 0.75rem !important;
+    }
+    
+    .about-title {
+        font-size: 1.35rem !important;
+    }
+    
+    .faq-main-title {
+        font-size: 1.35rem !important;
+        margin-bottom: 0.75rem !important;
+        padding-bottom: 1.5rem !important;
+    }
+    
+    .faq-subtitle {
+        margin-bottom: 2.5rem !important;
+    }
+    
+    .faq-question {
+        padding: 0.8rem 0.75rem !important;
+        font-size: 0.8rem !important;
+    }
+    
+    .btn-solid,
+    .cta-btn {
+        padding: 0.7rem 1.2rem !important;
+        font-size: 0.75rem !important;
+    }
+
+    /* Modal padding adjusts for very small screens */
+    .product-modal .product-modal-content {
+        padding: 3.5rem 0.75rem 1rem 0.75rem !important;
+    }
+
+    .modal-header {
+        padding: 0.85rem 0.75rem !important;
+    }
+
+    .product-modal .close-modal {
+        right: 0.75rem !important;
+    }
+    
+    .modal-main-image {
+        max-height: 180px !important;
+    }
+
+    .btn-footer {
+        height: 40px !important;
+        font-size: 0.75rem !important;
+        padding: 0 0.4rem !important;
+    }
+
+    .btn-footer svg {
+        width: 14px !important;
+        height: 14px !important;
     }
 }
