@@ -105,13 +105,15 @@
     align-items: flex-end; /* anchor content to bottom like reference image */
   }
 
-  /* Background image covers the full hero section on mobile */
+  /* Background image zoomed to cover the full hero on mobile */
   .hero-v2__bg {
     position: absolute !important;
-    inset: 0 !important;
+    inset: -5% !important;        /* bleed beyond edges so the scaled image has no gaps */
     background-size: cover !important;
     background-position: center center !important;
     background-repeat: no-repeat !important;
+    transform: scale(1.15) !important;   /* zoom in 15% to fill the whole hero */
+    transform-origin: center center !important;
   }
 
   .hero-v2__content {
