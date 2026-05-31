@@ -98,37 +98,44 @@
 /* Mobile */
 @media (max-width: 600px) {
   .hero-v2 {
-    /* increase hero height on phones a bit and center content beautifully */
-    height: 100vh !important;
-    min-height: 850px !important;
-    align-items: center;
+    /* Full-bleed hero: fill exactly the visible screen, no overflow gaps */
+    height: 100svh !important;
+    height: 100dvh !important;
+    min-height: unset !important;
+    align-items: flex-end; /* anchor content to bottom like reference image */
   }
 
   /* Background image covers the full hero section on mobile */
   .hero-v2__bg {
+    position: absolute !important;
+    inset: 0 !important;
     background-size: cover !important;
     background-position: center center !important;
+    background-repeat: no-repeat !important;
   }
 
   .hero-v2__content {
+    position: relative !important;
+    bottom: auto !important;
+    left: auto !important;
     max-width: 92%;
-    /* shift content down to avoid overlapping with logo */
-    padding: 140px 4vw 4vh 4vw !important;
-    gap: 1.5rem;
+    /* safe gap from bottom, clear of any nav bars */
+    padding: 0 5vw 6vh 5vw !important;
+    gap: 1.2rem;
     align-items: flex-start !important;
     text-align: left !important;
     transform: none !important;
   }
 
   .hero-v2__title {
-    font-size: clamp(2.5rem, 10vw, 3rem);
+    font-size: clamp(2.2rem, 9vw, 2.8rem);
     line-height: 1.05;
-    margin-top: 0.5rem;
+    margin-top: 0;
     text-align: left !important;
   }
 
   .hero-v2__cta {
-    margin-top: 1.2rem;
+    margin-top: 0.8rem;
     padding: 0.75rem 1.5rem !important;
     font-size: 0.85rem !important;
     white-space: nowrap;
