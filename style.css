@@ -1185,6 +1185,8 @@ body {
 .thumb-item {
     flex: 1;
     aspect-ratio: 1.25 / 1;
+    appearance: none;
+    padding: 0;
     border-radius: 6px;
     background-size: cover;
     background-position: center;
@@ -1244,64 +1246,25 @@ body {
     color: #64748b;
 }
 
-/* Minimal Accordion Style matching the image */
-.modal-accordions-group {
-    display: flex;
-    flex-direction: column;
-}
-
-.modal-accordion {
+/* Product Description Section Styles */
+.product-description-section {
     border-top: 1px solid #e2e8f0;
-    background: transparent;
-    transition: all 0.3s ease;
-}
-
-.modal-accordion:last-child {
-    border-bottom: 1px solid #e2e8f0;
-}
-
-.accordion-header {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.1rem 0;
-    background: none;
-    border: none;
-    outline: none;
-    cursor: pointer;
+    padding: 1.25rem 0;
     font-family: var(--font-main);
+}
+
+.product-description-title {
     font-size: 0.9rem;
     font-weight: 700;
     color: #0f172a;
+    margin: 0 0 0.75rem 0;
     text-align: left;
 }
 
-.accordion-arrow {
-    color: #64748b;
-    transition: transform 0.3s ease;
-}
-
-.accordion-content {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.accordion-body {
-    padding: 0 0 1.25rem 0;
-    font-family: var(--font-main);
+.product-description-content {
     font-size: 0.85rem;
     line-height: 1.6;
     color: #475569;
-}
-
-.modal-accordion.active .accordion-content {
-    max-height: 500px;
-}
-
-.modal-accordion.active .accordion-arrow {
-    transform: rotate(180deg);
 }
 
 /* Green Checkmark Bullet List */
@@ -1323,11 +1286,13 @@ body {
     color: #475569;
 }
 
-.bullet-check {
-    color: #10b981;
+.bullet-number {
+    color: #64748b;
     font-weight: 700;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
+    font-variant-numeric: tabular-nums;
     flex-shrink: 0;
+    margin-right: 0.25rem;
 }
 
 /* ================= Column 3: Options Panel ================= */

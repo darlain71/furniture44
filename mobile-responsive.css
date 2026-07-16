@@ -523,14 +523,17 @@
         font-size: 0.78rem !important;
     }
 
-    /* Accordions Sizing - Mobile */
-    .accordion-header {
-        padding: 0.9rem 0 !important;
-        font-size: 0.85rem !important;
+    /* Product Description Sizing - Mobile */
+    .product-description-section {
+        padding: 1rem 0 !important;
     }
 
-    .accordion-body {
-        padding: 0 0 1rem 0 !important;
+    .product-description-title {
+        font-size: 0.85rem !important;
+        margin-bottom: 0.5rem !important;
+    }
+
+    .product-description-content {
         font-size: 0.85rem !important;
     }
 
